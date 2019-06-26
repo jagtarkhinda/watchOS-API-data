@@ -13,18 +13,19 @@ import WatchConnectivity
 
 
 class ViewController: UIViewController, WCSessionDelegate {
+    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
+
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
-        
+
     }
-    
+
     func sessionDidDeactivate(_ session: WCSession) {
-        
+
     }
-    
+
 
     
     @IBOutlet weak var outputLabel: UILabel!
@@ -116,7 +117,10 @@ class ViewController: UIViewController, WCSessionDelegate {
         if (WCSession.default.isReachable) {
             // construct the message you want to send
             // the message is in dictionary
-            let message = ["Message": "Hello"]
+            let message =
+                ["Message": "Hello",
+                 "email": "jj@gmail.com"
+            ]
             errorchecking.text = "mesage sent"
             // send the message to the watch
             WCSession.default.sendMessage(message, replyHandler: nil)

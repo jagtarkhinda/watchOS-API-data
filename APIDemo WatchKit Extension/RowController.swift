@@ -10,7 +10,7 @@ import WatchKit
 
 class RowController: NSObject{
     
-    //label from page1 row
+    //label from page1 interface
     @IBOutlet var outputLabel: WKInterfaceLabel!
     
 }

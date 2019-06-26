@@ -10,24 +10,9 @@ import WatchKit
 import Foundation
 import Alamofire
 import SwiftyJSON
-import WatchConnectivity
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
-    }
-    
 
-func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        // Play a "click" sound when you get the message
-        WKInterfaceDevice().play(.click)
-        
-        // output a debug message to the terminal
-        print("Got a message!")
-        
-        // update the message with a label
-        getmessage.setText("\(message)")
-    }
+class InterfaceController: WKInterfaceController {
     
     
     // MARK: Outlet
@@ -91,11 +76,7 @@ func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-        if WCSession.isSupported() {
-            let session = WCSession.default
-            session.delegate = self
-            session.activate()
-        }
+     
         
         
     }
