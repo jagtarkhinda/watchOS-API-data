@@ -27,7 +27,7 @@ class PAGE1InterfaceController: WKInterfaceController,  WCSessionDelegate {
         
         // update the message with a label
         self.personList = [
-            message["Message"] as! String,
+            message["message"] as! String,
             message["email"] as! String
         ]
         

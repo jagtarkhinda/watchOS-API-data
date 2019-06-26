@@ -78,15 +78,6 @@ class ViewController: UIViewController, WCSessionDelegate {
             // Output the "title" of the item in position #2
             self.outputLabel.text = item["title"].stringValue
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
 //            // 2b. Get a key from the JSON object
 //            let origin = jsonResponse["origin"]
 //            let host = jsonResponse["headers"]["Host"]
@@ -110,6 +101,13 @@ class ViewController: UIViewController, WCSessionDelegate {
         }
     }
 
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
     //button on main phone screen
     @IBAction func print(_ sender: Any) {
         
@@ -118,7 +116,7 @@ class ViewController: UIViewController, WCSessionDelegate {
             // construct the message you want to send
             // the message is in dictionary
             let message =
-                ["Message": "Hello",
+                ["message": "Hello",
                  "email": "jj@gmail.com"
             ]
             errorchecking.text = "mesage sent"
@@ -133,10 +131,7 @@ class ViewController: UIViewController, WCSessionDelegate {
 
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
 
 
 }
