@@ -124,6 +124,8 @@ class ViewController: UIViewController, WCSessionDelegate {
         else{
             errorchecking.text = "cannnot send the data to watch"
         }
+        
+        //some pictures on phone
 
     }
     
