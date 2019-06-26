@@ -117,8 +117,12 @@ class ViewController: UIViewController, WCSessionDelegate {
             // construct the message you want to send
             // the message is in dictionary
             let message = ["Message": "Hello"]
+            errorchecking.text = "mesage sent"
             // send the message to the watch
             WCSession.default.sendMessage(message, replyHandler: nil)
+        }
+        else{
+            errorchecking.text = "cannnot send the data to watch"
         }
 
     }

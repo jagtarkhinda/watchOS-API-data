@@ -17,8 +17,16 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
     }
     
-    func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
+
+func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        // Play a "click" sound when you get the message
+        WKInterfaceDevice().play(.click)
         
+        // output a debug message to the terminal
+        print("Got a message!")
+        
+        // update the message with a label
+        getmessage.setText("\(message)")
     }
     
     
@@ -27,6 +35,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
  
     @IBOutlet var watchOutputLabel: WKInterfaceLabel!
     
+    @IBOutlet var getmessage: WKInterfaceLabel!
     
     // MARK: Actions
     @IBAction func getDataPressed() {
@@ -81,6 +90,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
         
         
     }

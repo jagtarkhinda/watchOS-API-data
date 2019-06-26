@@ -55,6 +55,7 @@
                         <label alignment="left" text="Label" id="l12-Sb-WkN"/>
                     </items>
                     <connections>
+                        <outlet property="getmessage" destination="x5x-MS-41c" id="elz-cY-K46"/>
                         <outlet property="watchOutputLabel" destination="l12-Sb-WkN" id="sdF-fb-v3Z"/>
                     </connections>
                 </controller>
