@@ -21,7 +21,7 @@
                         </button>
                         <table alignment="left" id="1nH-vc-Ha3">
                             <items>
-                                <tableRow id="1cH-ei-mCq" customClass="RowController" customModule="APIDemo_WatchKit_Extension">
+                                <tableRow identifier="myrow" id="1cH-ei-mCq" customClass="RowController" customModule="APIDemo_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="sXP-8Q-OKO">
                                         <items>
                                             <label width="133" height="38" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="56R-6e-xzM"/>

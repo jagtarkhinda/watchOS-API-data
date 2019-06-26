@@ -9,9 +9,22 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import WatchConnectivity
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
 
     
     @IBOutlet weak var outputLabel: UILabel!
@@ -35,12 +48,12 @@ class ViewController: UIViewController {
             // -- check for errors
             let apiData = response.result.value
             if (apiData == nil) {
-                print("Error when getting API data")
+                self.print("Error when getting API data")
                 return
             }
             // -- if no errors, then keep going
             
-            print(apiData)
+            self.print(apiData)
             
             
             // 2. Parse out the data you need (sunrise / sunset time)
@@ -50,7 +63,7 @@ class ViewController: UIViewController {
             // 2a. Convert the response to a JSON object
             let jsonResponse = JSON(apiData)
             
-            print(jsonResponse)
+            self.print(jsonResponse)
             
             // 2b. Get the array out of the JSON object
             var responseArray = jsonResponse.arrayValue
@@ -58,7 +71,7 @@ class ViewController: UIViewController {
             // 2c. Get the 3rd item in the array
             // item #3 = position 2
             var item = responseArray[2];
-            print(item)
+            self.print(item)
             
             // Output the "title" of the item in position #2
             self.outputLabel.text = item["title"].stringValue
@@ -85,6 +98,10 @@ class ViewController: UIViewController {
         }
     }
 
+    //button on main phone screen
+    @IBAction func print(_ sender: Any) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
