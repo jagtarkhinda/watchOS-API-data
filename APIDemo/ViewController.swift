@@ -29,6 +29,7 @@ class ViewController: UIViewController, WCSessionDelegate {
     
     @IBOutlet weak var outputLabel: UILabel!
     
+    @IBOutlet weak var errorchecking: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,10 +97,30 @@ class ViewController: UIViewController, WCSessionDelegate {
 //            // 3. Show the data in the user interface
 //            self.outputLabel.text = "IP Address: \(origin)"
         }
+        
+        if (WCSession.isSupported()) {
+            errorchecking.text = ("Yes it is!")
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
+        else{
+            errorchecking.text = ("Phone can not connect to the watch")
+        }
     }
 
     //button on main phone screen
     @IBAction func print(_ sender: Any) {
+        
+        //if session is suppported then sendthe data to phone
+        if (WCSession.default.isReachable) {
+            // construct the message you want to send
+            // the message is in dictionary
+            let message = ["Message": "Hello"]
+            // send the message to the watch
+            WCSession.default.sendMessage(message, replyHandler: nil)
+        }
+
     }
     
     override func didReceiveMemoryWarning() {

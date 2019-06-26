@@ -47,6 +47,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="errorchecking" destination="8v7-Om-UAC" id="dfH-Iu-Ic6"/>
                         <outlet property="outputLabel" destination="Xrb-FI-taC" id="rnS-4r-gn7"/>
                     </connections>
                 </viewController>
