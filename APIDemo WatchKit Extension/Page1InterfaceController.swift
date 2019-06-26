@@ -27,10 +27,11 @@ class PAGE1InterfaceController: WKInterfaceController,  WCSessionDelegate {
         
         // update the message with a label
         self.personList = [
-            message["message"] as! String,
-            message["email"] as! String
+            message["firstname"] as! String,
+            message["lastname"] as! String
         ]
         
+       
         self.tableView.setNumberOfRows(
             self.personList.count, withRowType:"myrow"
         )
@@ -65,6 +66,8 @@ class PAGE1InterfaceController: WKInterfaceController,  WCSessionDelegate {
             let session = WCSession.default
             session.delegate = self
             session.activate()
+            
+            print("watch session")
         }
         
         // 1. Tell watch how many rows you want

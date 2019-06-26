@@ -27,7 +27,7 @@ class ViewController: UIViewController, WCSessionDelegate {
     }
 
 
-    
+    var datalist:[String : Any]?
     @IBOutlet weak var outputLabel: UILabel!
     
     @IBOutlet weak var errorchecking: UILabel!
@@ -37,7 +37,7 @@ class ViewController: UIViewController, WCSessionDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         //let URL = "https://httpbin.org/get"
-        let URL = "https://jsonplaceholder.typicode.com/posts"
+        let URL = "https://randomuser.me/api/"
         
         Alamofire.request(URL).responseJSON {
             
@@ -67,28 +67,34 @@ class ViewController: UIViewController, WCSessionDelegate {
             
             self.print(jsonResponse)
             
-            // 2b. Get the array out of the JSON object
-            var responseArray = jsonResponse.arrayValue
+            self.datalist = [
+                "firstname":  jsonResponse["results"][0]["name"]["first"].stringValue,
+                "lastname":  jsonResponse["results"][0]["name"]["last"].stringValue
+            ]
             
-            // 2c. Get the 3rd item in the array
-            // item #3 = position 2
-            var item = responseArray[2];
-            self.print(item)
-            
-            // Output the "title" of the item in position #2
-            self.outputLabel.text = item["title"].stringValue
-            
-//            // 2b. Get a key from the JSON object
-//            let origin = jsonResponse["origin"]
-//            let host = jsonResponse["headers"]["Host"]
+//            // 2b. Get the array out of the JSON object
+//            var responseArray = jsonResponse.arrayValue
 //
-//            // 2c. Output the value to screen
-//            print("Your IP Address: \(origin)")
-//            print("Host: \(host)")
+//            // 2c. Get the 3rd item in the array
+//            // item #3 = position 2
+//            var item = responseArray[2];
+//            self.print(item)
 //
-//            // 3. Show the data in the user interface
-//            self.outputLabel.text = "IP Address: \(origin)"
+//            // Output the "title" of the item in position #2
+//            self.outputLabel.text = item["title"].stringValue
+//
+////            // 2b. Get a key from the JSON object
+////            let origin = jsonResponse["origin"]
+////            let host = jsonResponse["headers"]["Host"]
+////
+////            // 2c. Output the value to screen
+////            print("Your IP Address: \(origin)")
+////            print("Host: \(host)")
+////
+////            // 3. Show the data in the user interface
+////            self.outputLabel.text = "IP Address: \(origin)"
         }
+    
         
         if (WCSession.isSupported()) {
             errorchecking.text = ("Yes it is!")
@@ -115,13 +121,13 @@ class ViewController: UIViewController, WCSessionDelegate {
         if (WCSession.default.isReachable) {
             // construct the message you want to send
             // the message is in dictionary
-            let message =
-                ["message": "Hello",
-                 "email": "jj@gmail.com"
-            ]
+//            let message =
+//                ["message": "Hello",
+//                 "email": "jj@gmail.com"
+//            ]
             errorchecking.text = "mesage sent"
             // send the message to the watch
-            WCSession.default.sendMessage(message, replyHandler: nil)
+            WCSession.default.sendMessage(datalist!, replyHandler: nil)
         }
         else{
             errorchecking.text = "cannnot send the data to watch"
