@@ -14,52 +14,24 @@
             <objects>
                 <controller id="rVS-Ce-Ydo" customClass="PAGE1InterfaceController" customModule="APIDemo_WatchKit_Extension">
                     <items>
-                        <button width="1" alignment="left" title="Show page 2" id="bbn-8Y-aem">
+                        <table alignment="left" id="1nH-vc-Ha3"/>
+                        <label width="136" height="36" alignment="left" text="ACK?" id="Vyr-Pl-Nwr"/>
+                        <button width="1" alignment="left" title="Send to Phone" id="dHG-4W-Mfk">
                             <connections>
-                                <segue destination="AgC-eL-Hgc" kind="push" id="qSj-kZ-Ry1"/>
+                                <action selector="pushMessage" destination="rVS-Ce-Ydo" id="0DY-6n-nQl"/>
                             </connections>
                         </button>
-                        <table alignment="left" id="1nH-vc-Ha3">
-                            <items>
-                                <tableRow identifier="myrow" id="1cH-ei-mCq" customClass="RowController" customModule="APIDemo_WatchKit_Extension">
-                                    <group key="rootItem" width="1" alignment="left" id="sXP-8Q-OKO">
-                                        <items>
-                                            <label width="133" height="38" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="56R-6e-xzM"/>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <outlet property="outputLabel" destination="56R-6e-xzM" id="7dr-7q-6u7"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
+                        <label width="136" height="41" alignment="left" text="R1: ?" id="2xv-lX-FXv"/>
                     </items>
                     <connections>
+                        <outlet property="R1Label" destination="2xv-lX-FXv" id="eXW-jy-tqC"/>
+                        <outlet property="getMessage" destination="Vyr-Pl-Nwr" id="qjb-s6-yQz"/>
+                        <outlet property="sendMessage" destination="dHG-4W-Mfk" id="AMV-L7-Lbp"/>
                         <outlet property="tableView" destination="1nH-vc-Ha3" id="P0L-NU-PSm"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-293" y="21"/>
-        </scene>
-        <!--Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
-            <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="APIDemo_WatchKit_App" customModuleProvider="target">
-                    <items>
-                        <label alignment="left" text="Watch App" id="x5x-MS-41c"/>
-                        <button width="1" alignment="left" title="Get Data" id="oFp-PR-3wU">
-                            <connections>
-                                <action selector="getDataPressed" destination="AgC-eL-Hgc" id="Y7m-Nn-eSi"/>
-                            </connections>
-                        </button>
-                        <label alignment="left" text="Label" id="l12-Sb-WkN"/>
-                    </items>
-                    <connections>
-                        <outlet property="getmessage" destination="x5x-MS-41c" id="elz-cY-K46"/>
-                        <outlet property="watchOutputLabel" destination="l12-Sb-WkN" id="sdF-fb-v3Z"/>
-                    </connections>
-                </controller>
-            </objects>
         </scene>
     </scenes>
 </document>

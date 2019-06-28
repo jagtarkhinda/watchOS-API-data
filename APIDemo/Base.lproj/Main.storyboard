@@ -21,34 +21,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is an iPhone App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8v7-Om-UAC">
-                                <rect key="frame" x="105" y="134" width="165" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R2: MSg?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jje-S2-Up6">
+                                <rect key="frame" x="41" y="236" width="279" height="104"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrb-FI-taC">
-                                <rect key="frame" x="38" y="218" width="297" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-m9-Hh7">
-                                <rect key="frame" x="151" y="326" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d51-Dg-2Ll">
+                                <rect key="frame" x="119" y="429" width="124" height="30"/>
+                                <state key="normal" title="R1: send message"/>
                                 <connections>
-                                    <action selector="print:" destination="ZNF-oX-eho" eventType="touchUpInside" id="M2y-9B-A65"/>
+                                    <action selector="sendFirstMessage:" destination="ZNF-oX-eho" eventType="touchUpInside" id="0tH-DW-8bA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jje-S2-Up6" firstAttribute="leading" secondItem="KW8-Fx-sEq" secondAttribute="leadingMargin" constant="25" id="CPL-oc-WQS"/>
+                            <constraint firstItem="d51-Dg-2Ll" firstAttribute="top" secondItem="jje-S2-Up6" secondAttribute="bottom" constant="89" id="LPu-K2-8Wf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jje-S2-Up6" secondAttribute="trailing" constant="39" id="Md8-Hv-fuE"/>
+                            <constraint firstItem="6bB-XV-rtM" firstAttribute="top" secondItem="jje-S2-Up6" secondAttribute="bottom" constant="327" id="bau-8A-CAp"/>
+                            <constraint firstItem="jje-S2-Up6" firstAttribute="top" secondItem="HNK-Qy-V23" secondAttribute="bottom" constant="216" id="gdi-rW-Txb"/>
+                            <constraint firstItem="d51-Dg-2Ll" firstAttribute="centerX" secondItem="jje-S2-Up6" secondAttribute="centerX" id="yQ0-Ba-uJF"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="errorchecking" destination="8v7-Om-UAC" id="dfH-Iu-Ic6"/>
-                        <outlet property="outputLabel" destination="Xrb-FI-taC" id="rnS-4r-gn7"/>
+                        <outlet property="getMessage" destination="jje-S2-Up6" id="5WU-zh-dyr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fy-MN-jtx" userLabel="First Responder" sceneMemberID="firstResponder"/>
